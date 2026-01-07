@@ -1,0 +1,11 @@
+scrap_rate:
+  warning_gt: 0.08
+  alert_gt: 0.10
+
+downtime_event_sec:
+  warning_gt: 300
+  alert_gt: 1800
+
+cycle_time_p95_sec:
+  warning_gt: 120
+  alert_gt: 150

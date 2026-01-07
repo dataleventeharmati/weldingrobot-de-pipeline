@@ -1,0 +1,6 @@
+pandas
+numpy
+rich
+pydantic
+pyyaml
+streamlit

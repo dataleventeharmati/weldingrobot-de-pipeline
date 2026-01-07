@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: weld-pipeline
+Version: 0.1.0
+Summary: Industrial-style DE pipeline for welding robot data (synthetic -> staged -> curated -> reports)
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: rich
+Requires-Dist: pydantic
+Requires-Dist: pyyaml
+Requires-Dist: streamlit
+Dynamic: license-file
