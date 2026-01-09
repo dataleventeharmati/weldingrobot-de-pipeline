@@ -1,5 +1,9 @@
 # WeldingRobot-DE-Pipeline (weld-pipeline)
 
+
+![Welding Robot KPI Dashboard](assets/dashboard.png)
+
+
 Industrial-style Data Engineering pipeline for welding robot cell data:
 synthetic → raw → staged → reports, with data-quality checks, KPI reporting,
 and config-driven alerts.
