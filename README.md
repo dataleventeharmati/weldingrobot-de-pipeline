@@ -1,211 +1,137 @@
-# WeldingRobot-DE-Pipeline
+# 🤖 Welding Robot Data Engineering Pipeline
 
-End-to-end **Data Engineering demo project** simulating an industrial **welding robot factory**.  
-The project demonstrates how raw machine events can be transformed into **KPIs, alerts, drilldowns, and a management dashboard**.
+![CI](https://github.com/dataleventeharmati/weldingrobot-de-pipeline/actions/workflows/ci.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-production--ready-success)
 
-Focus:
-- Data Engineering pipelines
-- Data Quality (DQ)
-- KPI reporting and alerting
-- Drilldown analytics
-- Interactive dashboard
-- One-command demo mode
+An end-to-end industrial-style Data Engineering project simulating data pipelines for welding robots.
+The project demonstrates how raw machine data can be processed, validated, monitored, and visualized using modern Python-based tooling.
+
 
 ---
 
-## What this project demonstrates
+## 🚀 Demo
 
-This repository is a **portfolio-grade Data Engineering showcase**.
-
-Key concepts:
-- Synthetic industrial data generation (robots, cells, events, quality checks)
-- Raw → staged → report data layers
-- Data Quality reporting
-- KPI computation with threshold-based alerts
-- Drilldown analytics (cell / robot level)
-- Modular Python CLI pipeline
-- Interactive Streamlit dashboard
-- Multi-language UI (EN / DE / NL / FR / HU)
-- Production-style project structure (src/, CI, pytest)
+![Pipeline Demo](assets/demo/demo.gif)
 
 ---
 
-## Domain model – Welding robot factory
+## 🇬🇧 English
 
-- Cells: production cells in a factory
-- Robots: welding robots per cell
-- Events: START, END, ERROR, RESET
-- Quality checks: OK / NOK weld results
+### 📌 Project Overview
+This project simulates a production-grade data pipeline for welding robots, covering the full lifecycle from raw data ingestion to KPI monitoring and data quality validation.
 
-Derived metrics:
-- Scrap rate
-- Downtime events
-- Cycle time percentiles
-- Error code frequencies
-- Cell and robot performance indicators
+It is designed as a portfolio-ready Data Engineering project reflecting real-world industrial use cases.
 
----
+### 🏗️ Architecture
+- Data ingestion from simulated welding robot outputs  
+- ETL pipeline with validation and transformations  
+- KPI generation (performance, throughput, quality metrics)  
+- Data Quality checks with alert levels  
+- Streamlit dashboard for real-time monitoring  
+- CI-ready project structure  
 
-## Architecture overview
+### 🛠️ Tech Stack
+Python, Pandas, Streamlit, Pytest, GitHub Actions, Structured logging
 
-Project structure:
+### ▶️ How to Run
+Create a virtual environment, install dependencies, then start the dashboard:
+streamlit run dashboard.py
 
-data/
-- raw/        synthetic raw CSV files
-- staged/     cleaned and validated CSV files
-- reports/
-  - kpi_report_*.json
-  - dq_report_*.json
-  - drilldown_report_*.json
-
-src/weld_pipeline/
-- generate/   synthetic data factory
-- transform/  cleaning and data quality
-- report/     KPI, alerts, drilldown
-- dashboard/  dashboard modules (i18n, views, runner)
-- cli.py      CLI entrypoint
+### 🎯 Use Cases
+Industrial Data Engineering, Manufacturing analytics, Robotics telemetry, Portfolio project
 
 ---
 
-## One-command demo (recommended)
+## 🇩🇪 Deutsch
 
-Run a complete demo pipeline and start the dashboard:
+### 📌 Projektübersicht
+Dieses Projekt simuliert eine industrielle Datenpipeline für Schweißroboter – von der Rohdatenerfassung bis zur KPI- und Datenqualitätsüberwachung.
 
-./scripts/demo_run.sh
+Es wurde als praxisnahes Data-Engineering-Portfolio-Projekt entwickelt.
 
-What this does:
-1. Generate synthetic welding robot data
-2. Transform raw → staged datasets
-3. Create KPI and DQ reports
-4. Generate drilldown analytics
-5. Start the Streamlit dashboard
+### 🏗️ Architektur
+- Datenerfassung aus simulierten Schweißroboterdaten  
+- ETL-Pipeline mit Validierung und Transformation  
+- KPI-Berechnung  
+- Datenqualitätsprüfungen (OK / ALERT)  
+- Streamlit-Dashboard  
+- CI-fähige Projektstruktur  
 
-Dashboard URL:
-http://localhost:8501
+### ▶️ Ausführung
+streamlit run dashboard.py
 
-Optional clean start:
-
-./scripts/demo_clean.sh
-./scripts/demo_run.sh
-
----
-
-## Dashboard features
-
-KPI overview:
-- Jobs total and NOK
-- Scrap rate
-- Max downtime event
-- Cycle time p95
-- Threshold-based alerts
-
-Alerting:
-- OK / WARNING / ALERT levels
-- Thresholds loaded from configuration
-- Visual gauges
-
-Factory Wall:
-- Visual cell tiles
-- Status coloring (OK / WARNING / ALERT)
-- Auto-focus on worst-performing cell
-
-Drilldown analytics:
-- Per-cell and per-robot KPIs
-- Worst offenders (scrap, downtime, cycle)
-- Error code analysis
-
-Trends:
-- KPI evolution across historical runs
-- Time-series visualization
-
-Multi-language UI:
-- English
-- German
-- Dutch
-- French
-- Hungarian
+### 🎯 Einsatzbereiche
+Industrie 4.0, Produktionsdatenanalyse, Data-Engineering-Portfolio
 
 ---
 
-## CLI usage (advanced)
+## 🇫🇷 Français
 
-Generate raw data:
+### 📌 Présentation du projet
+Ce projet simule une pipeline de données industrielle pour robots de soudage, couvrant l’ingestion, la transformation, le contrôle qualité et la visualisation.
 
-python -m weld_pipeline.cli generate --days 7 --cells 3 --robots 2
+Il s’agit d’un projet de Data Engineering orienté portfolio.
 
-Transform raw → staged + DQ:
+### 🏗️ Architecture
+- Ingestion de données simulées  
+- Pipeline ETL  
+- Calcul des KPI  
+- Contrôles de qualité des données  
+- Dashboard Streamlit  
 
-python -m weld_pipeline.cli transform \
-  --events data/raw/robot_events_*.csv \
-  --quality data/raw/quality_checks_*.csv
+### ▶️ Lancement
+streamlit run dashboard.py
 
-KPI report:
-
-python -m weld_pipeline.cli report-kpi \
-  --events data/staged/robot_events_staged_*.csv \
-  --quality data/staged/quality_checks_staged_*.csv
-
-Drilldown report:
-
-python -m weld_pipeline.cli report-drilldown \
-  --events "data/staged/robot_events_staged_*.csv" \
-  --quality "data/staged/quality_checks_staged_*.csv"
-
-End-to-end run:
-
-python -m weld_pipeline.cli run --days 7 --cells 3 --robots 2
+### 🎯 Cas d’utilisation
+Analyse industrielle, robotique, Data Engineering appliqué
 
 ---
 
-## Testing and CI
+## 🇳🇱 Nederlands
 
-- Unit tests with pytest
-- CI via GitHub Actions
-- Deterministic seeds for reproducibility
+### 📌 Projectoverzicht
+Dit project simuleert een industriële data pipeline voor lasrobots, van ruwe data tot KPI-monitoring en datakwaliteitscontrole.
 
-Run tests locally:
+Ontwikkeld als een praktisch Data Engineering portfolio project.
 
-pytest
+### 🏗️ Architectuur
+- Data-ingestie  
+- ETL-verwerking  
+- KPI-berekening  
+- Datakwaliteitscontroles  
+- Streamlit dashboard  
 
----
+### ▶️ Uitvoeren
+streamlit run dashboard.py
 
-## Why this project exists
-
-This project demonstrates:
-- Realistic industrial data modeling
-- Practical Data Engineering principles
-- Data Quality as a first-class concern
-- KPI-driven decision support
-- Explainable, demo-ready systems
-
-Suitable for:
-- Data Engineer interviews
-- Portfolio reviews
-- Demo presentations
-- Technical deep-dives
+### 🎯 Toepassingen
+Industriële data-analyse, manufacturing pipelines, Data Engineer portfolio
 
 ---
 
-## Interview talking points
+## 🇭🇺 Magyar
 
-- Raw vs staged vs report layers
-- Data quality checks and metrics
-- KPI thresholds and alert semantics
-- Drilldown vs aggregate analytics
-- Idempotent pipelines
-- Dashboard as a consumer, not a data source
+### 📌 Projekt áttekintés
+Ez a projekt egy hegesztőrobotokhoz kapcsolódó ipari adatfeldolgozó pipeline-t szimulál, a nyers adatoktól a KPI-k és az adatminőség monitorozásáig.
+
+Kifejezetten Data Engineer portfólió projekthez készült.
+
+### 🏗️ Architektúra
+- Szimulált robotadatok beolvasása  
+- ETL folyamat  
+- KPI számítás  
+- Adatminőség ellenőrzés  
+- Streamlit dashboard  
+
+### ▶️ Futtatás
+streamlit run dashboard.py
+
+### 🎯 Felhasználási terület
+Ipari adatfeldolgozás, gyártási analitika, Data Engineer portfólió
 
 ---
 
-## Status
-
-Version: v1.0  
-State: Stable / Frozen
-
-The dashboard and pipeline core are intentionally frozen to preserve demo stability.
-
----
-
-## License
-
-MIT
+## 📄 License
+MIT License
