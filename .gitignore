@@ -39,3 +39,10 @@ data/reports/*.json
 !data/raw/.gitkeep
 !data/staged/.gitkeep
 !data/reports/.gitkeep
+
+# runtime data
+data/*
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/staged/.gitkeep
+!data/reports/.gitkeep
