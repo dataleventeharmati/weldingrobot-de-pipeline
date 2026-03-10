@@ -48,26 +48,23 @@ This project simulates a realistic scenario where raw machine events are transfo
 
 ## Architecture
 
-```text
-Synthetic robot events
-        |
-        v
-Raw / machine-style records
-        |
-        v
-Transform + validation
-        |
-        +----> staged robot events
-        +----> staged quality checks
-        |
-        v
-KPI aggregation + alert evaluation
-        |
-        +----> JSON KPI reports
-        +----> drilldown reports
-        |
-        v
-Streamlit monitoring dashboard
+```mermaid
+flowchart TD
+    A[Synthetic Welding Robot Events] --> B[Raw Data Layer]
+    B --> C[Transform and Cleaning]
+    C --> D[Data Quality Checks]
+    C --> E[Staged Event Tables]
+    C --> F[Staged Quality Tables]
+    D --> G[KPI Aggregation]
+    E --> G
+    F --> G
+    G --> H[Alert Evaluation]
+    G --> I[Drilldown Report]
+    G --> J[KPI JSON Report]
+    H --> K[Monitoring Outputs]
+    I --> K
+    J --> K
+    K --> L[Streamlit Dashboard]
 ```
 
 ---
