@@ -159,6 +159,38 @@ The pipeline generates:
 - monitoring dashboard outputs
 - execution logs
 
+
+### Example KPI output
+
+```json
+{
+  "generated_at": "2026-01-11T16:28:32Z",
+  "jobs_total": 12455,
+  "jobs_nok": 312,
+  "scrap_rate": 0.025,
+  "max_downtime_event_sec": 842,
+  "cycle_time_p95_sec": 118,
+  "alert_summary": {
+    "scrap_rate": "OK",
+    "downtime_event_sec": "WARNING",
+    "cycle_time_p95_sec": "OK"
+  }
+}
+```
+
+### Example data quality summary
+
+```json
+{
+  "rows_in_raw_events": 15234,
+  "rows_in_staged_events": 14980,
+  "duplicates_removed": 112,
+  "invalid_timestamps_removed": 21,
+  "null_key_fields_removed": 17,
+  "status": "OK"
+}
+```
+
 ---
 
 ## Data Quality and Alerting
