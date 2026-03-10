@@ -4,7 +4,6 @@ import logging
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Iterable
 
 import numpy as np
 import pandas as pd

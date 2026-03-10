@@ -4,3 +4,8 @@ rich
 pydantic
 pyyaml
 streamlit
+
+[dev]
+pytest
+pytest-cov
+ruff

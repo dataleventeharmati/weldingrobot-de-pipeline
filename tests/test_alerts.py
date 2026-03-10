@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from weld_pipeline.report.alerts import (
     _get_thresholds,
-    alert_scrap_rate,
-    alert_long_downtime,
     alert_cycle_time_p95,
+    alert_long_downtime,
+    alert_scrap_rate,
 )
 
 

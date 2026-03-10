@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from weld_pipeline.config.loader import load_thresholds, ConfigLoadError
+from weld_pipeline.config.loader import ConfigLoadError, load_thresholds
 
 
 def test_load_thresholds_success(tmp_path: Path):

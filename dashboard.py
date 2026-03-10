@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from datetime import datetime
-from pathlib import Path
 
 import streamlit as st
 
@@ -12,9 +11,9 @@ except Exception:  # pragma: no cover
 
 from weld_pipeline.dashboard.i18n import language_selector, t
 from weld_pipeline.dashboard.pipeline_runner import (
-    KPI_LATEST,
     DQ_LATEST,
     DRILLDOWN_LATEST,
+    KPI_LATEST,
     run_pipeline_steps,
     snapshot_latest_reports_to_timestamped,
 )
@@ -24,12 +23,12 @@ from weld_pipeline.dashboard.views import (
     cell_overall_status,
     emoji_for_status,
     fmt_dt,
+    pick_focus_cell_id,
     read_json,
     render_cell_wall,
     render_trends,
     render_worst_offenders,
     thresholds_from_kpi_alerts,
-    pick_focus_cell_id,
 )
 
 

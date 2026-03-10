@@ -1,137 +1,223 @@
-# 🤖 Welding Robot Data Engineering Pipeline
+# Welding Robot Data Engineering Pipeline
 
 ![CI](https://github.com/dataleventeharmati/weldingrobot-de-pipeline/actions/workflows/ci.yml/badge.svg)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-production--ready-success)
+![Status](https://img.shields.io/badge/status-medior--portfolio-success)
 
-An end-to-end industrial-style Data Engineering project simulating data pipelines for welding robots.
-The project demonstrates how raw machine data can be processed, validated, monitored, and visualized using modern Python-based tooling.
+Industrial-style **Data Engineering portfolio project** that simulates a manufacturing analytics pipeline for welding robots.
 
+The project transforms synthetic robot event data into validated staged datasets, KPI reports, alert-ready metrics, and a monitoring dashboard.
+It demonstrates practical Data Engineering skills in a production-like structure: configurable thresholds, automated reporting, testing, CI, and a reproducible CLI workflow.
 
 ---
 
-## 🚀 Demo
+## Demo
 
 ![Pipeline Demo](assets/demo/demo.gif)
 
 ---
 
-## 🇬🇧 English
+## Business Case
 
-### 📌 Project Overview
-This project simulates a production-grade data pipeline for welding robots, covering the full lifecycle from raw data ingestion to KPI monitoring and data quality validation.
+Manufacturing teams need fast visibility into robot performance, downtime, and scrap trends.
 
-It is designed as a portfolio-ready Data Engineering project reflecting real-world industrial use cases.
+This project simulates a realistic scenario where raw machine events are transformed into analytics-ready outputs that can support:
 
-### 🏗️ Architecture
-- Data ingestion from simulated welding robot outputs  
-- ETL pipeline with validation and transformations  
-- KPI generation (performance, throughput, quality metrics)  
-- Data Quality checks with alert levels  
-- Streamlit dashboard for real-time monitoring  
-- CI-ready project structure  
-
-### 🛠️ Tech Stack
-Python, Pandas, Streamlit, Pytest, GitHub Actions, Structured logging
-
-### ▶️ How to Run
-Create a virtual environment, install dependencies, then start the dashboard:
-streamlit run dashboard.py
-
-### 🎯 Use Cases
-Industrial Data Engineering, Manufacturing analytics, Robotics telemetry, Portfolio project
+- production monitoring
+- anomaly detection
+- quality trend analysis
+- cell-level performance review
+- portfolio demonstration of DE workflow design
 
 ---
 
-## 🇩🇪 Deutsch
+## What this Project Demonstrates
 
-### 📌 Projektübersicht
-Dieses Projekt simuliert eine industrielle Datenpipeline für Schweißroboter – von der Rohdatenerfassung bis zur KPI- und Datenqualitätsüberwachung.
-
-Es wurde als praxisnahes Data-Engineering-Portfolio-Projekt entwickelt.
-
-### 🏗️ Architektur
-- Datenerfassung aus simulierten Schweißroboterdaten  
-- ETL-Pipeline mit Validierung und Transformation  
-- KPI-Berechnung  
-- Datenqualitätsprüfungen (OK / ALERT)  
-- Streamlit-Dashboard  
-- CI-fähige Projektstruktur  
-
-### ▶️ Ausführung
-streamlit run dashboard.py
-
-### 🎯 Einsatzbereiche
-Industrie 4.0, Produktionsdatenanalyse, Data-Engineering-Portfolio
+- modular Python package structure (`src/`)
+- CLI-based pipeline execution
+- staged + reporting output layers
+- configurable KPI alert thresholds (YAML)
+- automated KPI + drilldown reporting
+- Streamlit monitoring dashboard
+- structured logging
+- automated tests
+- CI pipeline with GitHub Actions
 
 ---
 
-## 🇫🇷 Français
+## Architecture
 
-### 📌 Présentation du projet
-Ce projet simule une pipeline de données industrielle pour robots de soudage, couvrant l’ingestion, la transformation, le contrôle qualité et la visualisation.
-
-Il s’agit d’un projet de Data Engineering orienté portfolio.
-
-### 🏗️ Architecture
-- Ingestion de données simulées  
-- Pipeline ETL  
-- Calcul des KPI  
-- Contrôles de qualité des données  
-- Dashboard Streamlit  
-
-### ▶️ Lancement
-streamlit run dashboard.py
-
-### 🎯 Cas d’utilisation
-Analyse industrielle, robotique, Data Engineering appliqué
-
----
-
-## 🇳🇱 Nederlands
-
-### 📌 Projectoverzicht
-Dit project simuleert een industriële data pipeline voor lasrobots, van ruwe data tot KPI-monitoring en datakwaliteitscontrole.
-
-Ontwikkeld als een praktisch Data Engineering portfolio project.
-
-### 🏗️ Architectuur
-- Data-ingestie  
-- ETL-verwerking  
-- KPI-berekening  
-- Datakwaliteitscontroles  
-- Streamlit dashboard  
-
-### ▶️ Uitvoeren
-streamlit run dashboard.py
-
-### 🎯 Toepassingen
-Industriële data-analyse, manufacturing pipelines, Data Engineer portfolio
+```text
+Synthetic robot events
+        |
+        v
+Raw / machine-style records
+        |
+        v
+Transform + validation
+        |
+        +----> staged robot events
+        +----> staged quality checks
+        |
+        v
+KPI aggregation + alert evaluation
+        |
+        +----> JSON KPI reports
+        +----> drilldown reports
+        |
+        v
+Streamlit monitoring dashboard
+```
 
 ---
 
-## 🇭🇺 Magyar
+## Repository Structure
 
-### 📌 Projekt áttekintés
-Ez a projekt egy hegesztőrobotokhoz kapcsolódó ipari adatfeldolgozó pipeline-t szimulál, a nyers adatoktól a KPI-k és az adatminőség monitorozásáig.
-
-Kifejezetten Data Engineer portfólió projekthez készült.
-
-### 🏗️ Architektúra
-- Szimulált robotadatok beolvasása  
-- ETL folyamat  
-- KPI számítás  
-- Adatminőség ellenőrzés  
-- Streamlit dashboard  
-
-### ▶️ Futtatás
-streamlit run dashboard.py
-
-### 🎯 Felhasználási terület
-Ipari adatfeldolgozás, gyártási analitika, Data Engineer portfólió
+```text
+.
+├── app/                    dashboard assets
+├── assets/                 demo visuals
+├── config/                 YAML threshold configs
+├── data/
+│   ├── raw/                raw / generated data
+│   ├── staged/             validated intermediate outputs
+│   └── reports/            KPI reports
+├── logs/                   pipeline logs
+├── scripts/                demo scripts
+├── src/weld_pipeline/      main package
+├── tests/                  pytest test suite
+└── .github/workflows/      CI pipeline
+```
 
 ---
 
-## 📄 License
+## Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- Streamlit
+- PyYAML
+- Pydantic
+- Pytest
+- GitHub Actions
+
+---
+
+## Quickstart
+
+Create and activate a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install -e .[dev]
+```
+
+Run tests:
+
+```bash
+pytest -q
+```
+
+Check CLI commands:
+
+```bash
+python -m weld_pipeline.cli --help
+```
+
+Start dashboard:
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+## Example Workflow
+
+Typical pipeline execution:
+
+```bash
+python -m weld_pipeline.cli generate
+python -m weld_pipeline.cli transform
+python -m weld_pipeline.cli report-kpi
+python -m weld_pipeline.cli report-drilldown
+python -m weld_pipeline.cli run
+```
+
+---
+
+## Outputs
+
+The pipeline generates:
+
+- staged robot event tables
+- staged quality check tables
+- KPI JSON reports
+- latest-report aliases for quick inspection
+- monitoring dashboard outputs
+- execution logs
+
+---
+
+## Data Quality and Alerting
+
+The project includes configurable thresholds for operational metrics:
+
+- scrap rate
+- long downtime events
+- cycle time p95
+
+Thresholds are loaded from **YAML configuration** and evaluated into levels:
+
+- OK
+- WARNING
+- ALERT
+
+This demonstrates **configuration-driven monitoring inside a DE pipeline**.
+
+---
+
+## Why this is Portfolio-Relevant
+
+This repository is positioned as a **junior → medior Data Engineering portfolio project**.
+
+It demonstrates skills that hiring managers and freelance clients can quickly evaluate:
+
+- pipeline structure
+- reproducibility
+- reporting outputs
+- testability
+- configuration management
+- maintainability
+- operational monitoring mindset
+
+---
+
+## Current Limitations
+
+- synthetic data only
+- local file storage layer
+- lightweight CI
+- no warehouse / orchestration layer
+
+These are deliberate choices to keep the project portable and easy to review.
+
+---
+
+## Possible Future Improvements
+
+- curated analytics layer
+- coverage reporting in CI
+- stricter schema validation
+- Docker packaging
+- richer dashboard storytelling
+
+---
+
+## License
+
 MIT License

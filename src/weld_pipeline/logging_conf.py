@@ -2,6 +2,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
+
 def setup_logging(log_dir: str = "logs", filename: str = "pipeline.log") -> None:
     Path(log_dir).mkdir(parents=True, exist_ok=True)
     log_path = Path(log_dir) / filename

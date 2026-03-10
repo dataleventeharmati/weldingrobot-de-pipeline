@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import streamlit as st
 
+import streamlit as st
 
 KPI_LATEST = Path("data/reports/kpi_report_latest.json")
 DQ_LATEST = Path("data/reports/dq_report_latest.json")

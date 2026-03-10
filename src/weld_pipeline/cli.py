@@ -1,26 +1,24 @@
 import argparse
-import logging
 import json
-from pathlib import Path
+import logging
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 from rich.console import Console
 
-from weld_pipeline.logging_conf import setup_logging
+from weld_pipeline.config.loader import ConfigLoadError, load_thresholds
 from weld_pipeline.generate.synthetic_factory import GenConfig, generate_synthetic, write_outputs
-
 from weld_pipeline.io.paths import OutputPaths
+from weld_pipeline.logging_conf import setup_logging
+from weld_pipeline.report.alerts import (
+    alert_cycle_time_p95,
+    alert_long_downtime,
+    alert_scrap_rate,
+)
+from weld_pipeline.report.kpi import compute_kpis
 from weld_pipeline.transform.cleaning import parse_and_clean_events, parse_and_clean_quality
 from weld_pipeline.transform.dq import build_dq_report, report_to_dict
-from weld_pipeline.report.kpi import compute_kpis
-from weld_pipeline.report.alerts import (
-    alert_scrap_rate,
-    alert_long_downtime,
-    alert_cycle_time_p95,
-)
-from weld_pipeline.config.loader import load_thresholds, ConfigLoadError
-
 
 log = logging.getLogger(__name__)
 console = Console()
@@ -387,9 +385,9 @@ def cmd_run(args: argparse.Namespace) -> int:
     console.print(f" - raw quality: {raw_quality}")
     console.print(f" - staged events: {staged_events}")
     console.print(f" - staged quality: {staged_quality}")
-    console.print(f" - latest dq: data/reports/dq_report_latest.json")
-    console.print(f" - latest kpi: data/reports/kpi_report_latest.json")
-    console.print(f" - latest drilldown: data/reports/drilldown_report_latest.json" if args.with_drilldown else " - drilldown: (skipped)")
+    console.print(" - latest dq: data/reports/dq_report_latest.json")
+    console.print(" - latest kpi: data/reports/kpi_report_latest.json")
+    console.print(" - latest drilldown: data/reports/drilldown_report_latest.json" if args.with_drilldown else " - drilldown: (skipped)")
     return 0
 
 
