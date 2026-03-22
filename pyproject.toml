@@ -4,40 +4,42 @@ version = "0.1.0"
 description = "Industrial-style DE pipeline for welding robot data"
 readme = "README.md"
 requires-python = ">=3.10"
+authors = [{ name = "Levente Harmati" }]
+keywords = ["data-engineering", "pipeline", "manufacturing", "pandas", "streamlit"]
+
 dependencies = [
   "pandas",
   "numpy",
-  "rich",
-  "pydantic",
   "pyyaml",
-  "streamlit",
+  "pydantic",
+  "rich",
+  "streamlit"
 ]
+
+[project.urls]
+Repository = "https://github.com/dataleventeharmati/weldingrobot-de-pipeline"
+
+[project.scripts]
+weld-pipeline = "weld_pipeline.cli:main"
 
 [project.optional-dependencies]
 dev = [
   "pytest",
   "pytest-cov",
-  "ruff",
+  "ruff"
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = "-q --cov=src/weld_pipeline --cov-report=term-missing"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["src/weld_pipeline"]
+
+[tool.coverage.report]
+fail_under = 70
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
-
-[tool.ruff.lint]
-select = ["E", "F", "I"]
-ignore = ["E501"]
-
-[build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools]
-package-dir = {"" = "src"}
-
-[tool.setuptools.packages.find]
-where = ["src"]
