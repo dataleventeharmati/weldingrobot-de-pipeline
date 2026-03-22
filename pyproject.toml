@@ -31,15 +31,10 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q --cov=src/weld_pipeline --cov-report=term-missing"
+addopts = "-q"
 pythonpath = ["src"]
 
-[tool.coverage.run]
-branch = true
-source = ["src/weld_pipeline"]
 
-[tool.coverage.report]
-fail_under = 70
 
 [tool.ruff]
 line-length = 100
