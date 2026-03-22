@@ -46,3 +46,5 @@ data/*
 !data/raw/.gitkeep
 !data/staged/.gitkeep
 !data/reports/.gitkeep
+src/*.egg-info/
+*.egg-info/
