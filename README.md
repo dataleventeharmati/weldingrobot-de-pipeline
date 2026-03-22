@@ -251,3 +251,30 @@ These are deliberate choices to keep the project portable and easy to review.
 ## License
 
 MIT License
+
+---
+
+## 🔍 Quick Review (2 min recruiter guide)
+
+**Input (sample):**
+cycle_time, defect, energy  
+10,0,5  
+20,1,6  
+
+**Output KPI (example):**
+{
+  "avg_cycle_time": 15,
+  "defect_rate": 0.5
+}
+
+**DQ Report (example):**
+{
+  "missing_values": 0
+}
+
+👉 Run locally:
+weld-pipeline run
+
+👉 Dashboard:
+streamlit run dashboard.py
+
